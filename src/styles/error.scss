@@ -1,0 +1,14 @@
+@import "variables";
+
+.error-span {
+  color: red;
+  font-size: 14px;
+}
+.error-form__field {
+  border-image: linear-gradient(to right, $error-start,$error-end);
+  border-image-slice: 1;
+  &:focus {
+    border-image: linear-gradient(to right, $error-start,$error-end);
+    border-image-slice: 1;
+  }
+}

@@ -1,0 +1,41 @@
+@media (min-width: 1070px) {
+  .button {
+    margin-top: 20px;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+  .btn-hover {
+    width: 150px;
+    height: 55px;
+  }
+}
+.btn {
+  &-hover {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    &:hover {
+      background-position: 100% 0;
+      moz-transition: all .4s ease-in-out;
+      -o-transition: all .4s ease-in-out;
+      -webkit-transition: all .4s ease-in-out;
+      transition: all .4s ease-in-out;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}

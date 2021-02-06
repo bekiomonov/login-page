@@ -1,0 +1,164 @@
+//
+@import "variables";
+.bg {
+  width: 60%;
+  background-image: url("../img/bg.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.40rem 0 0 0.4rem;
+}
+
+.auth-form {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  -webkit-box-shadow: 0 0 10px 0 rgba(69,133,112,1);
+  -moz-box-shadow: 0 0 10px 0 rgba(69,133,112,1);
+  box-shadow: 0 0 10px 0 rgba(69,133,112,1);
+  border-radius: 8px;
+  margin: auto;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    border-left: none;
+    padding: 4% 4% 4% 2%;
+    border-radius: 0 0.40rem 0.40rem 0;
+    background-color: #fff;
+  }
+  &__group {
+    width: 200px;
+  }
+  &__title {
+    color: #797979;
+    font-size: 27px;
+  }
+}
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.greeting {
+  font-weight: 700;
+  color: $white;
+  font-size: 42px;
+  opacity:0;
+  transition: 1s;
+  animation: show 1.5s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  padding: 30px;
+}
+@keyframes show{
+  0%{
+    opacity:0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1070px) {
+  .auth-form {
+    display: flex;
+    width: 70%;
+    align-items: center;
+  }
+  @keyframes show{
+    0%{
+      opacity:0;
+    }
+    100% {
+      opacity: .7;
+    }
+  }
+  .bg {
+    width: 0;
+    position: absolute;
+    left: 49%;
+  }
+  .greeting {
+    margin-top: 0!important;
+    color: #000;
+  }
+  .form {
+    height: 80%;
+    position: relative;
+    &__container {
+      width: 100%;
+    }
+    &__field {
+      border: 0;
+      border-bottom: 2px solid #607979;
+    }
+    &__label {
+      color: #607979;
+    }
+  }
+  .button {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .btn-hover {
+    width: 90%;
+    height: 40px;
+  }
+  .greeting {
+    margin: 0;
+    font-size: 35px;
+  }
+}
+@media (max-width: 768px) {
+  .auth-form {
+    width: 70%;
+  }
+  .form {
+    &__title {
+      text-align: center;
+      height: 10px;
+      font-size: 20px;
+    }
+    &__container {
+      padding: 15% 4% 4% 4%;
+    }
+    &__group {
+      margin-top: 0;
+    }
+  }
+  select {
+    //height: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .auth-form {
+    width: 90%;
+  }
+  .bg {
+    bottom: 90%;
+  }
+  .greeting {
+    padding: 0;
+    font-size: 30px;
+  }
+  .form {
+    &__title {
+      font-size: 25px;
+    }
+    &__container {
+      padding: 20% 4% 4% 4%;
+    }
+  }
+}

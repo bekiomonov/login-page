@@ -1,0 +1,80 @@
+@import "variables";
+.form__group {
+  position: relative;
+  padding: 10px 20px 0 20px;
+  width: 100%
+}
+@media (min-width: 500px) {
+
+  .greeting {
+    padding: 0;
+  }
+}
+@media (min-width: 1071px) {
+  .form {
+    &__field {
+      border: 0;
+      border-bottom: 2px solid $gray;
+      color: $gray;
+    }
+    &__group {
+      height: 55px;
+    }
+  }
+}
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  outline: 0;
+  font-size: 1rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 15px;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;
+  }
+  option {
+    color: $gray;
+  }
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+
+
+
+
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+/* demo */
