@@ -1,5 +1,5 @@
 import React from "react";
-import './styles/main.scss';
+import './assets/styles/main.scss';
 import AuthPage from './pages/AuthPage'
 import { Switch, Route } from 'react-router-dom';
 import {Redirect} from "react-router";

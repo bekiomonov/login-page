@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {equals, path, prop} from "ramda";
 import Select from "react-select";
 
-function Auth(props) {
+function AuthForm(props) {
   const {
     register,
     errors,
@@ -15,6 +15,7 @@ function Auth(props) {
     phoneValidation,
     loginError
   } = props
+
   const error = {
     isNameErr: equals( path(['name', 'type'], errors), 'required') ||
     equals( path(['name', 'type'], errors), 'maxLength') ? ' error-form__field': '',
@@ -64,6 +65,7 @@ function Auth(props) {
       return {  };
     }
   }
+
   return(
     <div className='auth-form'>
       <form className='form' onSubmit={handleSubmit(onSubmit)}>
@@ -250,7 +252,7 @@ function Auth(props) {
     </div>
   )
 }
-Auth.propTypes = {
+AuthForm.propTypes = {
   register: PropTypes.func,
   errors: PropTypes.object,
   handleSubmit: PropTypes.func,
@@ -258,6 +260,6 @@ Auth.propTypes = {
   setFormState: PropTypes.func,
   onSubmit: PropTypes.func,
   phoneValidation: PropTypes.bool,
-  loginError: PropTypes.string,
+  loginError: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 }
-export default Auth
+export default AuthForm

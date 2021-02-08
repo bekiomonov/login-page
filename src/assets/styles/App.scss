@@ -1,0 +1,53 @@
+@import "variables";
+
+body {
+  font-size: 1.5rem;
+  margin: 0;
+}
+body {
+  //-webkit-animation: gradientBg 0s ease infinite;
+  //-moz-animation: gradientBg 0s ease infinite;
+  //animation: gradientBg 0s ease infinite;
+  //background: linear-gradient(
+  //                230deg
+  //        , #4bcf9a, #4bcf77, #4bc5cf);
+  background-image: url('../img/bg-pc.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@-webkit-keyframes gradientBg {
+  0%{background-position:0 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0 50%}
+}
+@-moz-keyframes gradientBg {
+  0%{background-position:0 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0 50%}
+}
+@keyframes gradientBg {
+  0%{background-position:0 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0 50%}
+}
+.welcome-title {
+  color: $black;
+  font-weight: 700;
+  font-size: 42px;
+  opacity:0;
+  transition: 1s;
+  animation: show 1.5s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  padding: 30px;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+.app {
+  height: 100vh;
+}

@@ -25,10 +25,13 @@ const client = new ApolloClient({
 });
 
 const middlewares = [thunk, createLogger({collapsed: true})]
+
 const store = createStore(combineReducers({
   state: authReducer
 }), compose(applyMiddleware(...middlewares)));
+
 const rootElement = document.getElementById('root')
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

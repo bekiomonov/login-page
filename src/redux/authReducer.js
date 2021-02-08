@@ -46,9 +46,8 @@ export const reducers = {
   [actionRejected(SIGN_UP)](state, { payload }) {
     return {
       ...state,
-      data: prop('message', payload),
       loading: false,
-      error: true,
+      error: prop('message', payload),
       isSignedUp: false,
     }
   },

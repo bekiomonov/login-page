@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from "react"
-import {useDispatch, useSelector} from "react-redux";
-import * as actions from "../../redux/actions";
-import Auth from "../../components/Auth";
-import { useForm, Controller } from "react-hook-form";
-import { gql } from '@apollo/client';
-import {useMutation} from "@apollo/client";
-import {AUTH_TOKEN} from "../../constants";
+import React, { useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router';
-import {path} from "ramda";
+import { useForm, Controller } from "react-hook-form";
+import { path } from "ramda";
+import { gql } from '@apollo/client';
+import { useMutation } from "@apollo/client";
+import * as actions from "../../redux/actions";
+import AuthForm from "../../components/Auth";
+import { AUTH_TOKEN } from "../../constants";
 
 export const SIGNUP_MUTATION = gql`
     mutation SignupMutation(
@@ -60,7 +60,7 @@ function AuthPage() {
   const { register, errors, control, handleSubmit } = useForm();
   const phoneValidation = useSelector(path(['state', 'phoneValidation']))
   const isSignedUp = useSelector(path(['state', 'isSignedUp']))
-  const loginError = useSelector(path(['state', 'data']))
+  const loginError = useSelector(path(['state', 'error']))
   const [formState, setFormState] = useState({
     email: '',
     name: '',
@@ -69,6 +69,7 @@ function AuthPage() {
     country: '',
     OS: '',
   })
+
   const [login] = useMutation(LOGIN_MUTATION, {
     variables: {
       email: formState.email,
@@ -107,9 +108,10 @@ function AuthPage() {
     }
     return dispatch(actions.signUp(signup))
   }
+
   return (
     <div className='container'>
-      <Auth
+      <AuthForm
         register={register}
         errors={errors}
         handleSubmit={handleSubmit}
