@@ -5,23 +5,33 @@ import { Switch, Route } from 'react-router-dom';
 import {Redirect} from "react-router";
 import Home from "./pages/Home";
 import {getToken} from "./helpers/getToken";
+import {useSelector} from "react-redux";
+import {path} from "ramda";
 
 function App() {
   const token = getToken()
+  const { isLoading } = useSelector(state => state)
   return (
     <div className='app'>
       <Switch>
-        <Route exact path="/">
-          { !token && <Redirect to='/sign-up'/> || <Redirect to='/home'/> }
-        </Route>
-        <Route exact path="/home" component={Home}>
-          { !token && <Redirect to='/sign-up'/> }
-        </Route>
-        <Route
-          exact
-          path="/sign-up"
-          component={AuthPage}
-        />
+        {
+          isLoading ? (
+            <div>Loading...</div>
+          ) :
+            (
+              <>
+                <Route exact path="/">
+                  {token ? <Redirect to="/home" /> : <AuthPage />}
+                </Route>
+                <Route path='/home'>
+                  {token ? <Home /> : <Redirect to='sign-up' />}
+                </Route>
+                <Route path='/sign-up'>
+                  {!token ? <AuthPage /> : <Redirect to='home' />}
+                </Route>
+              </>
+            )
+        }
       </Switch>
     </div>
   )
